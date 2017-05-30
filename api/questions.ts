@@ -13,7 +13,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.get('/lessons/:id/questions', (req, res) => {
-  Question.find({lessionID: req.params.id})
+  Question.find({lessonID: req.params.id})
   .then((matches) => res.json(matches));
 });
 
