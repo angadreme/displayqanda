@@ -12,7 +12,7 @@ router.get('/:id', (req, res) => {
   .then((foundanswer) => res.json(foundanswer));
 });
 
-router.get('/question/:id/answers', (req, res) => {
+router.get('/questions/:id/answers', (req, res) => {
   Answer.find({questionId: req.params.id})
   .then((matches) => res.json(matches));
 });
