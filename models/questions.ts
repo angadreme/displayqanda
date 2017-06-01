@@ -14,10 +14,6 @@ let questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  qContent: {
-    type: String,
-    required: true
-  },
   qDate: {
     type: Date,
     required: true
@@ -29,6 +25,7 @@ let questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  qContent: String,
   clickCount: Number
 });
 
