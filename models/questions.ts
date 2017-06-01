@@ -14,21 +14,18 @@ let QuestionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  qContent: {
-    type: String,
-    required: true
-  },
   qDate: {
     type: String,
     required: true
   },
   userID: {
-    type: String,
+    type: String
   },
   lessonID: {
     type: String,
     required: true
   },
+  qContent: String,
   clickCount: Number
 });
 
