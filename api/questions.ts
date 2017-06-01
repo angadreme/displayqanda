@@ -18,6 +18,4 @@ router.get('/:id', (req, res) => {
   .then((foundquestion) => res.json(foundquestion));
 });
 
-
-
 export default router;

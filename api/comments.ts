@@ -3,10 +3,14 @@ import Comments from '../models/comments';
 
 let router = express.Router();
 
-
 router.get('/', (req, res) => {
-  Comments.find().then((foundComment) =>
-  res.json(foundComment));
+  Comments.find().then((comments) => res.json(comments));
+});
+
+router.get('/answers/:id/comments', (req, res) => {
+  Comments.find({answerId: req.params.id})
+  .then((matches) => res.json(matches)) // .then((foundComment) => res.json(foundComment));
+  .catch((err) => res.json(err));
 });
 
 router.get('/:id', (req, res) => {
@@ -14,9 +18,9 @@ router.get('/:id', (req, res) => {
   .then((foundComment) => res.json(foundComment));
 });
 
-router.get('/answers/:id/comment', (req, res) => {
-  Comments.find({answerId: req.params.id})
-  .then((foundComment) => res.json(foundComment));
-});
-
 export default router;
+
+// router.get('/', (req, res) => {
+//   Comment.find().then((foundComment) =>
+//   res.json(foundComment));
+// });
