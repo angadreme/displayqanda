@@ -17,8 +17,10 @@ let commentsSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
+
   aComment: {
     type: String
+
   },
   userId: {
     type: String
