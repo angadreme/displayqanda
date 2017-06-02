@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
   Answer.find().then((answers) => res.json(answers));
 });
 
-router.get('/question/:id/answers', (req, res) => {
+router.get('/questions/:id/answers', (req, res) => {
   Answer.find({questionId: req.params.id})
   .then((matches) => res.json(matches))
   .catch((err) => res.json(err));
