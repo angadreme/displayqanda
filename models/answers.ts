@@ -1,4 +1,6 @@
 import * as mongoose from 'mongoose';
+import CommentModel from './comments';
+import {Comments} from './comments';
 
 interface Answer extends mongoose.Document{
   aDate;
@@ -7,6 +9,7 @@ interface Answer extends mongoose.Document{
   userId;
   usefulCount;
   bestAnswer;
+  aComments: Comments[];
 }
 
 let answerSchema = new mongoose.Schema({
@@ -25,6 +28,7 @@ let answerSchema = new mongoose.Schema({
   userId: {
     type: String
   },
+  aComments: [CommentModel],
   usefulCount: Number,
   bestAnswer: Boolean
 });
