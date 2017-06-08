@@ -1,23 +1,23 @@
 import * as mongoose from 'mongoose';
 
 export interface Comments extends mongoose.Document {
-  cDate: SVGAnimatedString;
+  cDate: string;
   answerId: string;
-  cContent: string;
+  aContent: string;
   userId: string;
   likeCount: number;
 }
 
 let commentSchema = new mongoose.Schema ({
   cDate: {
-    type: Date,
+    type: String,
     required: true
   },
   answerId: {
     type: String,
     required: true
   },
-  cContent: {
+  aContent: {
     type: String,
     required: true
   },

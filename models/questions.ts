@@ -11,7 +11,7 @@ interface Question extends mongoose.Document{
 
 let QuestionSchema = new mongoose.Schema({
   qTitle: {
-    type: Date,
+    type: String,
     required: true
   },
   qContent: {
