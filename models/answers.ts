@@ -24,7 +24,6 @@ let AnswerSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
-    required:true
   },
   usefulCount: Number,
   bestAnswer: Boolean
