@@ -11,7 +11,7 @@ interface Answer extends mongoose.Document{
 
 let AnswerSchema = new mongoose.Schema({
   aDate: {
-    type: Date,
+    type: String,
     required: true
   },
   questionId: {
@@ -24,6 +24,7 @@ let AnswerSchema = new mongoose.Schema({
   },
   userId: {
     type: String,
+    required:true
   },
   usefulCount: Number,
   bestAnswer: Boolean
