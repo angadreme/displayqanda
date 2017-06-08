@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 interface Answer extends mongoose.Document{
-  aDate: string;
+  aDate: Date;
   questionId: string;
   aContent: string;
   userId: string;
@@ -11,7 +11,7 @@ interface Answer extends mongoose.Document{
 
 let AnswerSchema = new mongoose.Schema({
   aDate: {
-    type: String,
+    type: Date,
     required: true
   },
   questionId: {

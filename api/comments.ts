@@ -5,8 +5,8 @@ let router = express.Router();
 
 
 router.get('/', (req, res) => {
-  Comments.find().then((foundComment) =>
-  res.json(foundComment));
+  Comments.find().then((comments) =>
+  res.json(comments));
 });
 
 router.get('/:id', (req, res) => {
@@ -14,9 +14,14 @@ router.get('/:id', (req, res) => {
   .then((foundComment) => res.json(foundComment));
 });
 
+router.get('/:date', (req, res) => {
+  Comments.find({aDate: {$where: "Comments.cDate > req.params.date"}})
+  .then((matches) => res.json(matches));
+});
+
 router.get('/answers/:id/comment', (req, res) => {
   Comments.find({answerId: req.params.id})
-  .then((foundComment) => res.json(foundComment));
+  .then((matches) => res.json(matches));
 });
 
 export default router;

@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export interface Comments extends mongoose.Document {
-  cDate: string;
+  cDate: Date;
   answerId: string;
   aContent: string;
   userId: string;
@@ -10,7 +10,7 @@ export interface Comments extends mongoose.Document {
 
 let commentSchema = new mongoose.Schema ({
   cDate: {
-    type: String,
+    type: Date,
     required: true
   },
   answerId: {
