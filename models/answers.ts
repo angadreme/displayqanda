@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 interface Answer extends mongoose.Document{
-  aDate: Date;
+  aDate: string;
   questionId: string;
   aContent: string;
   userId: string;

@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export interface Comments extends mongoose.Document {
-  cDate: Date;
+  cDate: SVGAnimatedString;
   answerId: string;
   aContent: string;
   userId: string;
