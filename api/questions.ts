@@ -18,4 +18,10 @@ router.get('/lessons/:id/questions', (req, res) => {
   .catch((err) => console.log(err));
 });
 
+// router.get('/:id', (req, res) => {
+//   Question.findOne({_id: req.params.id})
+//   .then((foundQuestions) => res.json(foundQuestions))
+//   .catch((err) => console.log(err));
+// });
+
 export default router;

@@ -1,14 +1,14 @@
 import * as mongoose from 'mongoose';
 
 export interface Comments extends mongoose.Document {
-  cDate;
-  answerId;
-  aComment;
-  userId;
-  likeCount;
+  cDate: SVGAnimatedString;
+  answerId: string;
+  cContent: string;
+  userId: string;
+  likeCount: number;
 }
 
-let commentsSchema = new mongoose.Schema ({
+let commentSchema = new mongoose.Schema ({
   cDate: {
     type: Date,
     required: true
@@ -17,16 +17,16 @@ let commentsSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
-
-  aComment: {
-    type: String
-
+  cContent: {
+    type: String,
+    required: true
   },
   userId: {
-    type: String
+    type: String,
+    required: true
   },
   likeCount: Number
 
 });
 
-export default mongoose.model<Comments>('Comments', commentsSchema);
+export default mongoose.model<Comments>('Comments', commentSchema);

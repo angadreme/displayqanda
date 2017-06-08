@@ -12,11 +12,15 @@ router.get('/:id', (req, res) => {
   .then((foundanswer) => res.json(foundanswer));
 });
 
+router.get('/:date', (req, res) => {
+  Answer.find({aDate: {$where: "Answer.aDate > req.params.date"}})
+  .then((matches) => res.json(matches));
+});
+
 router.get('/questions/:id/answers', (req, res) => {
   Answer.find({questionId: req.params.id})
   .then((matches) => res.json(matches))
   .catch((err) => console.log(err));
 });
-
 
 export default router;

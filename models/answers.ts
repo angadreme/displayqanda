@@ -1,18 +1,15 @@
 import * as mongoose from 'mongoose';
-import CommentModel from './comments';
-import {Comments} from './comments';
 
 interface Answer extends mongoose.Document{
-  aDate;
-  questionId;
-  aContent;
-  userId;
-  usefulCount;
-  bestAnswer;
-  aComments: Comments[];
+  aDate: string;
+  questionId: string;
+  aContent: string;
+  userId: string;
+  usefulCount: number;
+  bestAnswer: boolean;
 }
 
-let answerSchema = new mongoose.Schema({
+let AnswerSchema = new mongoose.Schema({
   aDate: {
     type: Date,
     required: true
@@ -26,11 +23,10 @@ let answerSchema = new mongoose.Schema({
     required: true
   },
   userId: {
-    type: String
+    type: String,
   },
-  aComments: [CommentModel],
   usefulCount: Number,
   bestAnswer: Boolean
 });
 
-export default mongoose.model<Answer>('Answer', answerSchema);
+export default mongoose.model<Answer>('Answer', AnswerSchema);

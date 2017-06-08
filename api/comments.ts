@@ -3,6 +3,7 @@ import Comments from '../models/comments';
 
 let router = express.Router();
 
+
 router.get('/', (req, res) => {
   Comments.find().then((comments) => res.json(comments));
 });
@@ -10,18 +11,18 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   Comments.findById(req.params.id)
   .then((foundComment) => res.json(foundComment))
-  .catch((err) => res.json(err));
+  .catch((err) => console.log(err));
 });
 
-router.get('/answers/:id/comments', (req, res) => {
-  Comments.find({answerId: req.params.id})
+router.get('/:date', (req, res) => {
+  Comments.find({aDate: {$where: "Comments.cDate > req.params.date"}})
   .then((matches) => res.json(matches))
   .catch((err) => console.log(err));
 });
 
-export default router;
+router.get('/answers/:id/comments', (req, res) => {
+  Comments.find({answerId: req.params.id})
+  .then((matches) => res.json(matches));
+});
 
-// router.get('/', (req, res) => {
-//   Comment.find().then((foundComment) =>
-//   res.json(foundComment));
-// });
+export default router;

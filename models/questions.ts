@@ -1,21 +1,25 @@
 import * as mongoose from 'mongoose';
 
 interface Question extends mongoose.Document{
-  qTitle;
-  qContent;
-  qDate;
-  userID;
-  lessonID;
-  clickCount;
+  qTitle: string;
+  qContent: string;
+  qDate: string;
+  userID: string;
+  lessonID: string;
+  clickCount: number;
 }
 
-let questionSchema = new mongoose.Schema({
+let QuestionSchema = new mongoose.Schema({
   qTitle: {
+    type: Date,
+    required: true
+  },
+  qContent: {
     type: String,
     required: true
   },
   qDate: {
-    type: Date,
+    type: String,
     required: true
   },
   userID: {
@@ -25,8 +29,7 @@ let questionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  qContent: String,
   clickCount: Number
 });
 
-export default mongoose.model<Question>('Question', questionSchema);
+export default mongoose.model<Question>('Question', QuestionSchema);
